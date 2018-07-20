@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Image } from 'react-native'
 import { connect } from 'react-redux'
-import {Button} from '../../components'
+import { Button } from '../../components'
 import { NavigationActions } from '../../utils'
 
 @connect()
 export default class Home extends Component {
-    static navigationOptions = {
-        tabBarLabel: 'Home',
-        tabBarIcon: ({ focused, tintColor }) => (
-            <Image
-                style={[styles.icon, { tintColor: focused ? tintColor : 'gray' }]}
-                source={require('../../images/house.png')}
-            />
-        ),
+    componentWillMount() {
+        console.log('home')
     }
 
     gotoOther = () => {

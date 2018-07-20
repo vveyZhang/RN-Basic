@@ -1,5 +1,5 @@
 import React from "react";
-import { AppRegistry } from "react-native";
+import { AppRegistry, SafeAreaView } from "react-native";
 import dva from "./utils/dva";
 import Router, { routerMiddleware, routerReducer } from './router'
 import models from './utils/models'
@@ -12,8 +12,6 @@ const app = dva({
     console.log('onError', e)
   },
 });
-
-
 const App = app.start(<Router />);
 
 AppRegistry.registerComponent('saasPartClubApp', () => App)

@@ -5,5 +5,6 @@ export const routerConfig = {
         navigationOptions: () => ({
             headerTitle: `other`
         })
-    }
+    },
+    
 }

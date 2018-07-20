@@ -3,7 +3,7 @@ import { StyleSheet, Text } from 'react-native'
 
 import Touchable from './Touchable'
 
-export const Button = ({ text, children, style, textStyle, ...rest }) => (
+const Button = ({ text, children, style, textStyle, ...rest }) => (
   <Touchable style={[styles.button, style]} {...rest}>
     <Text style={[styles.text, textStyle]}>{text || children}</Text>
   </Touchable>
@@ -11,18 +11,17 @@ export const Button = ({ text, children, style, textStyle, ...rest }) => (
 
 const styles = StyleSheet.create({
   button: {
-    paddingVertical: 6,
-    paddingHorizontal: 12,
     borderRadius: 3,
-    backgroundColor: '#fff',
+    height: 40,
+    backgroundColor: '#5934fd',
     alignItems: 'center',
     justifyContent: 'center',
-    borderColor: '#037aff',
+    borderColor: '#140361',
     borderWidth: StyleSheet.hairlineWidth,
   },
   text: {
-    fontSize: 16,
-    color: '#037aff',
+    fontSize: 12,
+    color: '#ffffff',
   },
 })
 

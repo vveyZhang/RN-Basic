@@ -1,4 +1,11 @@
-export { NavigationActions } from 'react-navigation'
+
+import {
+    StatusBar,
+    Dimensions,
+    Platform
+} from 'react-native';
+
+export { NavigationActions, StackActions } from 'react-navigation'
 
 export const delay = time => new Promise(resolve => setTimeout(resolve, time))
 
@@ -14,4 +21,28 @@ export function getActiveRouteName(navigationState) {
     }
     return route.routeName
 }
+export const dimen = Dimensions.get('window');
 
+export function isIphoneX() {
+
+    return (
+        Platform.OS === 'ios' &&
+        !Platform.isPad &&
+        !Platform.isTVOS &&
+        (dimen.height === 812 || dimen.width === 812)
+    );
+}
+
+export function ifIphoneX(iphoneXStyle, regularStyle) {
+    if (isIphoneX()) {
+        return iphoneXStyle;
+    }
+    return regularStyle;
+}
+
+export function getStatusBarHeight(safe) {
+    return Platform.select({
+        ios: ifIphoneX(30, 20),
+        android: StatusBar.currentHeight
+    });
+}
